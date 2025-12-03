@@ -31,7 +31,12 @@ bool containsPattern(String id) {
     final pattern = id.substring(0, windowSize);
     final matcher = pattern
         .padRight(id.length, pattern)
-        .substring(0, id.length);
+        .substring(
+          0,
+          id.length,
+        ); // When pattern is longer than 1 digit, padRight creates a string that is longer than id.length.
+    // This is the lazy solution of cutting the string back to the desired length afterwards instead.
+    // The nicer solution would probably to calculate the right length to pad to, based on pattern length.
     if (pattern.startsWith("0")) continue;
     if (id == matcher) {
       print("$id == $matcher");
