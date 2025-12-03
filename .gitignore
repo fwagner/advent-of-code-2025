@@ -1,0 +1,34 @@
+# GitHub Copilot
+
+# Dart & general
+.dart_tool/
+.packages
+package_config.json
+pubspec.lock
+
+# Build/outputs
+build/
+out/
+coverage/
+.lcov
+.coverage
+
+# Generated folders (older Dart tools)
+packages/
+
+# VS Code
+.vscode/
+
+# IDEs
+.idea/
+*.iml
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs and temp
+*.log
+/tmp/
+temp/
+*.tmp
