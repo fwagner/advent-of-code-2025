@@ -1,5 +1,3 @@
-import 'dart:isolate';
-
 typedef Point = ({int x, int y});
 typedef Location = ({bool isOccupied, bool canMove});
 
