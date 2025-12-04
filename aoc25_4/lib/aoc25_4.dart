@@ -26,7 +26,7 @@ class Warehouse {
       final maxDimensions = (x: lines.first.length, y: lines.length);
       for (var y = 0; y < lines.length; y++) {
         final line = lines[y].split('');
-        for (var x = 0; x < lines.length; x++) {
+        for (var x = 0; x < line.length; x++) {
           plan.putIfAbsent((
             x: x,
             y: y,
