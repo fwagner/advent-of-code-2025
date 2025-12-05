@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 int findAndAddInvalidIds(String input) {
   final ranges = input.split(",");
   return ranges.map(processRange).fold(0, (sum, result) => sum + result);

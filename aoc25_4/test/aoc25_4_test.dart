@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:aoc25_4/aoc25_4.dart';
 import 'package:test/test.dart';
 
