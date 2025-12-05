@@ -76,6 +76,11 @@ class Inventory {
         if (range.overlaps(other)) {
           range = range.union(other);
           idxsToRemove.add(y);
+        } else {
+          // As freshRanges is ordered by start, there cannot be a range with a start that is larger than range.start that we haven't already processed.
+          // So, when other is not overlapping range, we know that there cannot be another range with a start that is smaller than other.start.
+          // Thus no range from the list can overlap range anymore and we can stop looking.
+          break;
         }
       }
       freshRanges[idx] = range;
