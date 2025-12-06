@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:aoc25_6/term.dart';
 
 class WorksheetParser {
