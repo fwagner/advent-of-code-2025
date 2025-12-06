@@ -18,11 +18,9 @@ class Range implements Comparable {
 
   bool contains(int number) => number >= start && number <= end;
 
-  bool overlaps(Range other) => contains(other.start) || contains(other.end);
-
-  Range union(Range other) {
-    if (!overlaps(other)) {
-      throw ArgumentError("Range $this and $other have no overlap.");
+  Range? union(Range other) {
+    if (!contains(other.start) && !contains(other.end)) {
+      return null;
     }
 
     return Range(start: min(start, other.start), end: max(end, other.end));
@@ -73,8 +71,9 @@ class Inventory {
       final idxsToRemove = <int>[];
       for (var y = idx + 1; y < freshRanges.length; y++) {
         final other = freshRanges[y];
-        if (range.overlaps(other)) {
-          range = range.union(other);
+        final union = range.union(other);
+        if (union != null) {
+          range = union;
           idxsToRemove.add(y);
         } else {
           // As freshRanges is ordered by start, there cannot be a range with a start that is larger than range.start that we haven't already processed.
